@@ -12,7 +12,7 @@ create_user_payload = {
 }
 create_user_response = httpx.post("http://localhost:8000/api/v1/users", json=create_user_payload)
 create_user_response_data = create_user_response.json()
-print("create_user_response: ", create_user_response_data)
+print("create user response: ", create_user_response_data)
 
 
 login_payload = {
