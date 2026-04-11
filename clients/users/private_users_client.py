@@ -33,7 +33,7 @@ class PrivateUsersClient(APIClient):
         """
         return self.get("api/v1/users/me")
 
-    def get_user_id_api(self, user_id: str) -> Response:
+    def get_user_api(self, user_id: str) -> Response:
         """
             Метод получения пользователя по идентификатору.
 
