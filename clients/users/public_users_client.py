@@ -7,6 +7,9 @@ from clients.api_client import APIClient
 
 
 class User(TypedDict):
+    """
+        Описание структуры пользователя.
+    """
     id: str
     email: str
     lastName: str
@@ -25,6 +28,9 @@ class CreateUserRequestDict(TypedDict):
 
 
 class CreateUserResponseDict(TypedDict):
+    """
+        Описание структуры ответа создания пользователя.
+    """
     user: User
 
 class PublicUsersClient(APIClient):
