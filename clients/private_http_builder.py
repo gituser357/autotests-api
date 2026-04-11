@@ -4,6 +4,10 @@ from clients.authentication.authentication_client import get_authentication_clie
 from typing import TypedDict
 
 class AuthenticationUserDict(TypedDict):
+    """
+    AuthenticationUserDict — тип‑алиас (type alias) или псевдоним для словаря (dict),
+    описывающий структуру данных пользователя для аутентификации.
+    """
     email: str
     password: str
 
