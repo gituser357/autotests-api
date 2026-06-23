@@ -35,7 +35,7 @@ class FileSchema(BaseModel): # схема для вложенного объек
     filename: str
     directory: str
 
-class UserSchema(BaseModel):
+class UserSchema(BaseModel): # схема для вложенного объекта createdByUser в json
     id: str
     email: EmailStr
     last_name: str = Field(alias="lastName")
@@ -71,7 +71,7 @@ course_default_model = CourseSchema(
     description="Playwright",
     previewFile = FileSchema(
         id="file-id",
-        url="http://localhost:8080",
+        url= "http://localhost:8080",
         filename="file.png",
         directory="courses"
     ),
