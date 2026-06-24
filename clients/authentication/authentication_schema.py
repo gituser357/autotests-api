@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from tools.fakers import fake
 
 """
 Используем Field(alias="..."). Так как в API могут использоваться поля в camelCase, 
@@ -18,8 +19,8 @@ class LoginRequestSchema(BaseModel): # Наследуем от BaseModel вме�
     """
         Описание структуры запроса на аутентификацию.
     """
-    email: str
-    password: str
+    email: str = Field(default_factory=fake.email)
+    password: str = Field(default_factory=fake.password)
 
 
 class LoginResponseSchema(BaseModel):  # Наследуем от BaseModel
@@ -33,5 +34,5 @@ class RefreshRequestSchema(BaseModel): # Наследуем от BaseModel
     """
         Описание структуры запроса для обновления токена.
     """
-    refresh_token: str = Field(alias = "refreshToken") # Использовали alise
+    refresh_token: str = Field(alias = "refreshToken", default_factory=fake.sentence) # Использовали alise
 
