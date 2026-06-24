@@ -1,4 +1,5 @@
-from clients.courses.courses_client import get_courses_client, CreateCourseRequestDict
+from clients.courses.courses_client import get_courses_client
+from clients.courses.courses_schema import CreateCourseRequestSchema
 from clients.files.files_client import get_files_client
 from clients.files.files_schema import CreateFileRequestSchema
 from clients.private_http_builder import AuthenticationUserSchema
@@ -17,6 +18,7 @@ create_user_request = CreateUserRequestSchema(
     first_name="string",  # Передаем аргументы в формате snake_case вместо camelCase
     middle_name="string"  # Передаем аргументы в формате snake_case вместо camelCase
 )
+
 # Используем метод create_user
 create_user_response = public_users_client.create_user(create_user_request)
 
@@ -39,7 +41,7 @@ create_file_response = files_client.create_file(create_file_requesrt)
 print ('Create file data:', create_file_response)
 
 # Созданный пользователь + созданного ранее файла = Создаем курс
-create_course_request = CreateCourseRequestDict(
+create_course_request = CreateCourseRequestSchema(
     title="Python",
     maxScore=100,
     minScore=10,

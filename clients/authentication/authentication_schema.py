@@ -21,11 +21,13 @@ class LoginRequestSchema(BaseModel): # Наследуем от BaseModel вме�
     email: str
     password: str
 
+
 class LoginResponseSchema(BaseModel):  # Наследуем от BaseModel
     """
         Описание структуры ответа аутентификации.
     """
     token: TokenSchema
+
 
 class RefreshRequestSchema(BaseModel): # Наследуем от BaseModel
     """

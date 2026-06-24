@@ -6,9 +6,10 @@ class FileSchema(BaseModel): #взяли из response GET
     Описание структуры файла.
     """
     id: str
-    url: HttpUrl
     filename: str
     directory: str
+    url: HttpUrl
+
 
 class CreateFileRequestSchema(BaseModel):
     """
@@ -17,6 +18,7 @@ class CreateFileRequestSchema(BaseModel):
     filename: str
     directory: str
     upload_file: str
+
 
 class CreateFileResponseSchema(BaseModel):
     """
