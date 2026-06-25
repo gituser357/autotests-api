@@ -1,3 +1,2 @@
-
-
-create_user =
+import pydantic
+print(pydantic.__version__)
