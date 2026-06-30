@@ -28,13 +28,15 @@ class Fake:
         """
         return self.faker.uuid4()
 
-    def email(self) -> str:
+    def email(self, domain: str | None = None) -> str:
         """
         Генерирует случайный email.
 
+        :param domain: Домен электронной почты (например, "example.com").
+        Если не указан, будет использован случайный домен.
         :return: Случайный email.
         """
-        return self.faker.email()
+        return self.faker.email(domain=domain)
 
     def sentence(self) -> str:
         """
@@ -84,15 +86,15 @@ class Fake:
         """
         return f"{self.integer(1, 10)} weeks"
 
-    def integer(self, min: int = 1, max: int = 100) -> int:
+    def integer(self, start: int = 1, end: int = 100) -> int:
         """
         Генерирует случайное целое число в заданном диапазоне.
 
-        :param min: Начало диапазона (включительно).
-        :param max: Конец диапазона (включительно).
+        :param start: Начало диапазона (включительно).
+        :param end: Конец диапазона (включительно).
         :return: Случайное целое число.
         """
-        return self.faker.random_int(min, max)
+        return self.faker.random_int(start, end)
 
     def max_score(self) -> int:
         """
@@ -111,6 +113,4 @@ class Fake:
         return self.integer(1, 30)
 
 
-# Создаем экземпляр класса Fake с использованием Faker
-# Чтобы было с русскими данными: fake = Fake(faker=Faker("ru_RU"))
 fake = Fake(faker=Faker())
